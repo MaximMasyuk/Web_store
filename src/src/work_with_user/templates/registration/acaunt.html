@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+<br><br><br><br><br><br>
+<table class="table">
+    <tr>
+        <th>Имя</th>
+        <td>{{user.username}}</td>
+    </tr>
+    <tr>
+        <th>Адресс</th>
+        <td>{{user.profile.adress}}</td>
+    </tr>
+</table>
+<div>
+    <a href="{% url 'logout' %}">Выйти из профиля</a>
+    
+    <a href="{% url 'change-password' %}">Изменить пароль</a>
+</div>
+{% endblock body %}

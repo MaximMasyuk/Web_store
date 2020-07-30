@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+<br><br><br>
+<table class="table">
+        <tr>
+            <th>Индекс</th>
+            <td>{{object.pk}}</td>
+            <td rowspan="19" style = "border: 0px; padding: 0px 0px 0px 100px;">
+               
+                <img src="{{object.image.url}}" class="card-img-top" alt="..." height="500" widht="1800">
+
+     
+            </td>
+        </tr>
+        <tr>
+            <th>Название</th>
+            <td>{{object.name}}</td>
+        </tr>
+        <tr>
+            <th>Цена</th>
+            <td>{{object.price}} BYN</td>
+        </tr>
+        <tr>
+            <th>Категория</th>
+            <td>{{object.categorie}} BYN</td>
+        </tr>
+        <tr>
+            <th>Фирма производитель</th>
+            <td>{{object.manufacturing_firm}}</td>
+        </tr>
+        <tr>
+            <th>Описание</th>
+            <td>{{object.description}}</td>
+        </tr>
+        <tr>
+            <th>Год первоиздания</th>
+            <td>{{object.year_of_publishing}}</td>
+        </tr>
+        
+        <tr>
+            <th>Доступный остаток</th>
+            <td>{{object.in_stock}}, шт.</td>
+        </tr>
+    
+        <tr>
+            <th>Рейтинг</th>
+            <td>{{object.rating}}/10</td>
+        </tr>
+    </table>
+
+    {% endblock body %}

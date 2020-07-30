@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+<br><br><br>
+<div class="starter-template"><h1>{{action}}</h1></div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr align="middle">
+        <th scope="col">Наименование книги</th>
+        <th scope="col">Количество экземпляров</th>
+        <th scope="col">Цена за заказ, BYN</th>
+        <th scope="col">Дополнительная информация</th>
+        <th scope="col">Редактирование</th>
+        <th scope="col">Удаление</th>
+    </tr>
+  </thead>
+    {% for component in card.components.all %}
+    <tr align="middle">
+        <td><a href="/component/{{book.book.pk}}/">{{component.component.name}}</a></td>
+        <td>{{component.quantity}}</td>
+        <td>{{component.price}}</td>
+        <td><a href="/componentincard/{{component.pk}}/"><i class="fas fa-info"></i></a></td>
+        <td><a href="{{ url }}/update/{{component.component.pk}}/"><i class="far fa-edit"></i></a></td>
+        <td><a href="/componentincard/delete/{{component.pk}}/"><i class="far fa-trash-alt"></i></a></td>
+    </tr>
+    {% endfor %}
+</table>
+    <h3>Итоговая цена: {{card.total_price}} BYN</h3>
+
+    <p align="center">
+        <a href="/" class="btn btn-primary btn-lg active"
+            role="button" type="submit" aria-pressed="true">Добавить объект</a>
+    </p>
+    <p align="center">
+      <a href="/order" class="btn btn-primary btn-lg active"
+          role="button" type="submit" aria-pressed="true">Заказать</a>
+  </p>
+  {% endblock body %}

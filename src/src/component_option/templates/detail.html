@@ -1,0 +1,14 @@
+
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<br>
+<br>
+<h1>{{title}} {{ object.name }}</h1>
+<h3>Описание: {{ object.description }}</h3>
+
+
+
+{% endblock body %}

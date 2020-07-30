@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+<br><br><br>
+<div class="starter-template"><h1>Детали заказа</h1></div>
+<h5>Уважаемый {{user}}, Вы планируете заказать  "{{object.component.name}}" в количестве {{object.quantity}} экз.</br>
+    Общая цена, с учетом стоимости 1 экземпляра равной {{object.component.price}} BYN, составит {{object.price}} BYN = {{object.component.price}} BYN x {{object.quantity}} экз.
+</h5>
+<br><br>
+<table class="table">
+    <tr>
+        <th>Индекс</th>
+        <td>{{object.pk}}</td>
+        <td rowspan="19" style = "border: 0px; padding: 0px 0px 0px 100px;">
+           
+            <img src="{{object.component.image.url}}" class="card-img-top" alt="..." height="600" widht="300">
+
+ 
+        </td>
+    </tr>
+    <tr>
+        <th>Название</th>
+        <td>{{object.component.name}}</td>
+    </tr>
+    <tr>
+        <th>Цена</th>
+        <td>{{object.component.price}} BYN</td>
+    </tr>
+    <tr>
+        <th>Категория</th>
+        <td>{{object.component.categorie}} BYN</td>
+    </tr>
+    <tr>
+        <th>Фирма производитель</th>
+        <td>{{object.component.manufacturing_firm}}</td>
+    </tr>
+    <tr>
+        <th>Описание</th>
+        <td>{{object.component.description}}</td>
+    </tr>
+    <tr>
+        <th>Год первоиздания</th>
+        <td>{{object.component.year_of_publishing}}</td>
+    </tr>
+    
+    <tr>
+        <th>Доступный остаток</th>
+        <td>{{object.component.in_stock}}, шт.</td>
+    </tr>
+
+    <tr>
+        <th>Рейтинг</th>
+        <td>{{object.component.rating}}/10</td>
+    </tr>
+</table>
+
+<div style="padding: 40px 15px;">
+    <p align="middle">
+        <a href="/card" class="btn btn-primary btn-lg active"
+           role="button" type="submit" aria-pressed="true">Просмотреть корзину</a>
+    </p>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+
+
+
+
+
+<div class="starter-template"><h1>Добавить в корзину</h1></div>
+<div style="height: 50px;"></div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3>Хотите добавить в корзину книгу "{{object.book.name}}"</h3>
+    <table>
+        {{ form|crispy }}
+    </table>
+    
+
+<div style="height: 50px;"></div>
+<div style="height: 150px;">
+    <button type="submit" class="btn btn-success btn-lg active">Сохранить</button>
+    <a href="/card/" class="btn btn-primary btn-lg active" role="button" type="submit" aria-pressed="true">
+        Вернуться к списку</a>
+</form>
+</div>
+
+{% endblock body %}
